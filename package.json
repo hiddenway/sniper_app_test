@@ -1,0 +1,36 @@
+{
+  "name": "test_work_sniper_api",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build",
+    "dev": "nodemon ./src/server.ts",
+    "start": "node ./build/server.js"
+  },
+  "dependencies": {
+    "@solana/web3.js": "^1.98.4",
+    "@types/bn.js": "^5.2.0",
+    "bn.js": "^5.2.2",
+    "bs58": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "joi": "^18.0.1",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "jiti": "^2.6.1",
+    "typescript-eslint": "^8.46.3"
+  }
+}
