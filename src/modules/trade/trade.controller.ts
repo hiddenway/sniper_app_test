@@ -71,11 +71,7 @@ router.get("/pnl/:userId", async (req: Request, res: Response) => {
   }
 });
 
-function onError(
-  res: Response,
-  statusCode: number,
-  errorDescription: string
-) {
+function onError(res: Response, statusCode: number, errorDescription: string) {
   res.status(statusCode).send({ success: false, errorDescription });
 }
 
@@ -85,7 +81,7 @@ function handleError(res: Response, error: unknown) {
   }
 
   console.error("Unhandled trade error", error);
-  return onError(res, 500, "Internal server error");
+  return onError(res, 500, "Internal server error. Message: " + error);
 }
 
 export default router;

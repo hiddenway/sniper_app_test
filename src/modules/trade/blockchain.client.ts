@@ -73,7 +73,13 @@ export default class BlockchainClient {
     amount: BN,
     taker: string | null = null
   ) {
-    let url = `${this.jupOrderApi}?inputMint=${inputMint}&outputMint=${outputMint}&amount=${amount}&taker=${taker}`;
+    let url =
+      `${this.jupOrderApi}` +
+      `?inputMint=${inputMint}` +
+      `&outputMint=${outputMint}` +
+      `&amount=${amount}` +
+      `&taker=${taker}`;
+
     if (taker == null) {
       url = `${this.jupOrderApi}?inputMint=${inputMint}&outputMint=${outputMint}&amount=${amount}`;
     }
@@ -83,11 +89,15 @@ export default class BlockchainClient {
     if (!response.ok) {
       const errorBody = await response.text();
       throw new Error(
-        `getOrder error: ${response.status} ${response.statusText}. Body: ${errorBody}`
+        `${response.status} ${response.statusText}. Body: ${errorBody}`
       );
     }
 
     const quoteResponse = await response.json();
+
+    if (quoteResponse.error) {
+      throw new Error(quoteResponse.error);
+    }
 
     return quoteResponse;
   }
