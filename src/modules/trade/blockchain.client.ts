@@ -111,7 +111,7 @@ export default class BlockchainClient {
 
   private async executeOrder(signedTransaction: string, requestId: string) {
     try {
-      const response = await fetch("https://lite-api.jup.ag/ultra/v1/execute", {
+      const response = await fetch(this.jupExecuteApi, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
