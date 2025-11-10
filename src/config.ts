@@ -8,6 +8,7 @@ export const config = {
     process.env.DB_PATH ?? path.resolve(__dirname, "../data/database.sqlite"),
   signerPK: process.env.SIGNER_PK ?? "",
   inputMintForSimple: process.env.INPUT_MINT_FOR_SIMPLE_MODE ?? "",
+  apiKeyAuth: process.env.API_KEY_AUTH ?? "",
 };
 
 if (config.signerPK == "") {
